@@ -20,4 +20,4 @@ export MYSQL_URL=jdbc:mysql://$DB_HOST:$DB_PORT/$DB_NAME
 export MYSQL_USER=$DB_USER
 export MYSQL_PASS=$DB_PASS
 
-sudo -u appuser java -jar /home/appuser/spring-petclinic/target/*.jar --spring.profiles.active=your-mysql
+sudo -u appuser java -jar /home/appuser/spring-petclinic/target/*.jar --spring.profiles.active=mysql

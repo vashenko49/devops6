@@ -1,0 +1,20 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 841-524-287
+127.0.0.1 - - [25/Oct/2024 19:26:06] "GET /students HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "POST /students HTTP/1.1" 201 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "POST /students HTTP/1.1" 201 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "POST /students HTTP/1.1" 201 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "GET /students HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "PATCH /students/2/age HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "GET /students/2 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "PUT /students/3 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "GET /students/3 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "GET /students HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "DELETE /students/1 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Oct/2024 19:26:06] "GET /students HTTP/1.1" 200 -

@@ -1,0 +1,50 @@
+pipeline {
+    agent { label 'Node 1' }
+
+    environment {
+        DOCKER_CREDENTIALS = credentials('docker-hub-credentials')
+        IMAGE_NAME = 'vashenko49/step2'
+        GIT_CREDENTIALS = 'jenkins-github-https-cred'
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git credentialsId: GIT_CREDENTIALS, url:  'https://github.com/vashenko49/step2.git', branch: 'main'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    sh 'npm install'
+                    sh 'npm test'
+                }
+            }
+        }
+
+
+
+        stage('Push to Docker Hub') {
+            when {
+                expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
+            }
+            steps {
+                script {
+                  withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh 'echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin'
+                    }
+
+
+                     sh 'docker push $IMAGE_NAME'
+                }
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Tests failed'
+        }
+    }
+}
